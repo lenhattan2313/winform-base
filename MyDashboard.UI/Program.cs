@@ -1,5 +1,5 @@
 using System;
-using System.Windows.Forms;
+using System.Windows;
 
 namespace MyDashboard.UI
 {
@@ -11,9 +11,8 @@ namespace MyDashboard.UI
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            var app = new Application();
+            app.Run(new MainWindow());
         }
     }
 }

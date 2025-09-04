@@ -174,6 +174,7 @@ catch (Exception ex)
 ### 4. Code Quality
 
 #### Code Review Checklist
+
 - Follow naming conventions
 - Add meaningful comments
 - Handle exceptions properly
@@ -181,6 +182,7 @@ catch (Exception ex)
 - Validate input parameters
 
 #### Performance Monitoring
+
 ```csharp
 // Monitor method execution time
 var stopwatch = System.Diagnostics.Stopwatch.StartNew();
@@ -295,6 +297,7 @@ public class AppConfiguration
 ### 8. Debugging and Monitoring
 
 #### Debug Output
+
 ```csharp
 // Use debug output for development
 System.Diagnostics.Debug.WriteLine($"Processing alarm: {alarm.Message}");
@@ -323,6 +326,7 @@ System.Diagnostics.Debug.WriteLine($"Filter applied: {filterText}");
    ```
 
 3. Update repository:
+
    ```csharp
    public class AlarmRepository
    {

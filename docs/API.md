@@ -140,18 +140,18 @@ public class ReportRepository
 
 ## UI Components
 
-### MainForm
+### MainWindow
 
-Main application form with navigation capabilities.
+Main application window with navigation capabilities.
 
 ```csharp
-public partial class MainForm : Form
+public partial class MainWindow : Window
 {
-    public MainForm()
+    public MainWindow()
     private void LoadPage(UserControl page)
-    private void btnAlarm_Click(object sender, EventArgs e)
-    private void btnReport_Click(object sender, EventArgs e)
-    private void btnSetting_Click(object sender, EventArgs e)
+    private void BtnAlarm_Click(object sender, RoutedEventArgs e)
+    private void BtnReport_Click(object sender, RoutedEventArgs e)
+    private void BtnSetting_Click(object sender, RoutedEventArgs e)
 }
 ```
 
@@ -227,7 +227,7 @@ var lineAlarms = alarmService.GetAlarms("Line1", DateTime.Today, DateTime.Now, "
 // Subscribe to filter changes
 filterBar.FilterChanged += (sender, e) => {
     var alarms = alarmService.GetAlarms(e.Line, e.FromDate, e.ToDate, e.SearchText);
-    dataGridView.DataSource = alarms;
+    dataGridView.ItemsSource = alarms;
 };
 ```
 
@@ -235,9 +235,9 @@ filterBar.FilterChanged += (sender, e) => {
 
 ```csharp
 // Load different pages
-mainForm.LoadPage(new AlarmPage());
-mainForm.LoadPage(new ReportPage());
-mainForm.LoadPage(new SettingPage());
+mainWindow.LoadPage(new AlarmPage());
+mainWindow.LoadPage(new ReportPage());
+mainWindow.LoadPage(new SettingPage());
 ```
 
 ## Error Handling

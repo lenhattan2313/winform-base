@@ -1,6 +1,6 @@
-# MyDashboard - WinForms Dashboard Application
+# MyDashboard - WPF Dashboard Application
 
-A modern Windows Forms dashboard application built with .NET 8, featuring a clean architecture with separation of concerns.
+A modern WPF dashboard application built with .NET 8, featuring a clean architecture with separation of concerns and beautiful XAML-based UI.
 
 ## 🏗️ Architecture
 
@@ -16,7 +16,7 @@ MyDashboard/
 
 ### Project Structure
 
-- **MyDashboard.UI**: Contains all Windows Forms, user controls, and UI logic
+- **MyDashboard.UI**: Contains all WPF windows, user controls, and XAML-based UI logic
 - **MyDashboard.Core**: Contains business models, services, and application logic
 - **MyDashboard.Data**: Contains data repositories and data access logic
 
@@ -38,8 +38,8 @@ MyDashboard/
 
 ## 🛠️ Technology Stack
 
-- **.NET 8**: Latest .NET framework with Windows Forms support
-- **Windows Forms**: Native Windows desktop UI framework
+- **.NET 8**: Latest .NET framework with WPF support
+- **WPF**: Modern Windows desktop UI framework with XAML
 - **C# 12**: Latest C# language features
 - **Clean Architecture**: Separation of concerns with dependency injection ready
 
@@ -47,7 +47,7 @@ MyDashboard/
 
 - .NET 8 SDK or later
 - Visual Studio 2022 or Visual Studio Code with C# extension
-- Windows 10/11 (required for Windows Forms)
+- Windows 10/11 (required for WPF)
 
 ## 🏃‍♂️ Getting Started
 
@@ -76,11 +76,12 @@ Or open the solution in Visual Studio and press F5.
 
 ### MyDashboard.UI
 
-The main Windows Forms application containing:
+The main WPF application containing:
 
-- **MainForm**: Main application shell with navigation
+- **MainWindow**: Main application window with navigation
 - **Pages**: Individual dashboard pages (Alarm, Report, Settings)
 - **Controls**: Reusable UI components (FilterBar)
+- **XAML**: Modern UI design with styling and themes
 
 ### MyDashboard.Core
 
@@ -174,4 +175,4 @@ For support and questions, please contact the development team or create an issu
 
 ---
 
-**Built with ❤️ using .NET 8 and Windows Forms**
+**Built with ❤️ using .NET 8 and WPF**

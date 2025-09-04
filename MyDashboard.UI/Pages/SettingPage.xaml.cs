@@ -1,5 +1,4 @@
-// Placeholder for setting page
-using System.Windows.Forms;
+using System.Windows.Controls;
 
 namespace MyDashboard.UI.Pages
 {
