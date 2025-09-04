@@ -1,4 +1,6 @@
-namespace MyDashboard.Core.Models
+using System;
+
+namespace MyDashboard.WPF.Models
 {
     public class AlarmRecord
     {

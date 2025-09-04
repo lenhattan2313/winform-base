@@ -1,0 +1,42 @@
+<UserControl x:Class="MyDashboard.WPF.Views.AlarmPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:MyDashboard.WPF.ViewModels"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <vm:AlarmViewModel />
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Filter bar -->
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <ComboBox Grid.Column="0" Width="100" ItemsSource="{Binding Lines}" SelectedItem="{Binding SelectedLine}" Margin="5" Style="{StaticResource ModernComboBoxStyle}"/>
+            <DatePicker Grid.Column="1" SelectedDate="{Binding FromDate}" Width="150" Margin="5" Style="{StaticResource ModernDatePickerStyle}"/>
+            <DatePicker Grid.Column="2" SelectedDate="{Binding ToDate}" Width="150" Margin="5" Style="{StaticResource ModernDatePickerStyle}"/>
+            <TextBox Grid.Column="3" Width="200" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Margin="5" Style="{StaticResource ModernTextBoxStyle}"/>
+            <Button Grid.Column="4" Content="Search" Command="{Binding SearchCommand}" Width="100" Margin="5" Style="{StaticResource PrimaryButtonStyle}"/>
+        </Grid>
+
+        <!-- Table -->
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Alarms}" AutoGenerateColumns="True" Margin="10" Style="{StaticResource ModernDataGridStyle}"/>
+    </Grid>
+</UserControl>
