@@ -24,19 +24,39 @@ namespace MyDashboard.WPF.ViewModels
         public string Username
         {
             get => _username;
-            set { _username = value; OnPropertyChanged(nameof(Username)); ClearError(); }
+            set 
+            { 
+                _username = value; 
+                OnPropertyChanged(nameof(Username)); 
+                ClearError();
+                // Trigger command CanExecute re-evaluation
+                CommandManager.InvalidateRequerySuggested();
+            }
         }
 
         public string Password
         {
             get => _password;
-            set { _password = value; OnPropertyChanged(nameof(Password)); ClearError(); }
+            set 
+            { 
+                _password = value; 
+                OnPropertyChanged(nameof(Password)); 
+                ClearError();
+                // Trigger command CanExecute re-evaluation
+                CommandManager.InvalidateRequerySuggested();
+            }
         }
 
         public bool IsLoading
         {
             get => _isLoading;
-            set { _isLoading = value; OnPropertyChanged(nameof(IsLoading)); }
+            set 
+            { 
+                _isLoading = value; 
+                OnPropertyChanged(nameof(IsLoading));
+                // Trigger command CanExecute re-evaluation when loading state changes
+                CommandManager.InvalidateRequerySuggested();
+            }
         }
 
         public string ErrorMessage

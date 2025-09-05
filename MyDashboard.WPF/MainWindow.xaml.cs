@@ -18,16 +18,39 @@ namespace MyDashboard.WPF
         public MainWindow()
         {
             InitializeComponent();
-            ContentArea.Content = new AlarmPage();
             
             // Get services from DI container
             _authManager = App.ServiceProvider.GetService<IAuthManager>();
             _authService = App.ServiceProvider.GetService<AuthService>();
+            
+            // Check authentication status before loading content
+            if (_authManager.IsAuthenticated)
+            {
+                ContentArea.Content = new AlarmPage();
+            }
+            else
+            {
+                // If not authenticated, redirect to login
+                RedirectToLogin();
+            }
         }
 
-        private void Alarm_Click(object sender, RoutedEventArgs e) => ContentArea.Content = new AlarmPage();
-        private void Report_Click(object sender, RoutedEventArgs e) => ContentArea.Content = new ReportPage();
-        private void Setting_Click(object sender, RoutedEventArgs e) => ContentArea.Content = new SettingPage();
+        private void Alarm_Click(object sender, RoutedEventArgs e) => NavigateToPage(() => new AlarmPage());
+        private void Report_Click(object sender, RoutedEventArgs e) => NavigateToPage(() => new ReportPage());
+        private void Setting_Click(object sender, RoutedEventArgs e) => NavigateToPage(() => new SettingPage());
+        
+        private void NavigateToPage(Func<object> pageFactory)
+        {
+            if (!_authManager.IsAuthenticated)
+            {
+                MessageBox.Show("Session expired. Please login again.", "Authentication Required", 
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                RedirectToLogin();
+                return;
+            }
+            
+            ContentArea.Content = pageFactory();
+        }
         
         private async void Logout_Click(object sender, RoutedEventArgs e)
         
@@ -41,15 +64,20 @@ namespace MyDashboard.WPF
                 _authManager.ClearUser();
                 
                 // Show login window and close main window
-                var loginWindow = new LoginPage();
-                loginWindow.Show();
-                this.Close();
-                Application.Current.MainWindow = loginWindow;
+                RedirectToLogin();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Logout failed: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+        
+        private void RedirectToLogin()
+        {
+            var loginWindow = new LoginPage();
+            loginWindow.Show();
+            this.Close();
+            Application.Current.MainWindow = loginWindow;
         }
     }
 }

@@ -3,9 +3,403 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Assets/Styles/AppResources.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
+            
+            <!-- =============================================== -->
+            <!-- COLORS -->
+            <!-- =============================================== -->
+            
+            <!-- Primary Color Palette -->
+            <SolidColorBrush x:Key="PrimaryBrush" Color="#2196F3"/>
+            <SolidColorBrush x:Key="PrimaryLightBrush" Color="#64B5F6"/>
+            <SolidColorBrush x:Key="PrimaryDarkBrush" Color="#1976D2"/>
+            <SolidColorBrush x:Key="PrimaryAccentBrush" Color="#1565C0"/>
+
+            <!-- Secondary Color Palette -->
+            <SolidColorBrush x:Key="SecondaryBrush" Color="#FFC107"/>
+            <SolidColorBrush x:Key="SecondaryLightBrush" Color="#FFD54F"/>
+            <SolidColorBrush x:Key="SecondaryDarkBrush" Color="#F57F17"/>
+
+            <!-- Neutral Colors -->
+            <SolidColorBrush x:Key="BackgroundBrush" Color="#F5F5F5"/>
+            <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="SurfaceVariantBrush" Color="#FAFAFA"/>
+            <SolidColorBrush x:Key="TextBrush" Color="#212121"/>
+            <SolidColorBrush x:Key="TextSecondaryBrush" Color="#757575"/>
+            <SolidColorBrush x:Key="BorderBrush" Color="#E0E0E0"/>
+            <SolidColorBrush x:Key="DividerBrush" Color="#BDBDBD"/>
+
+            <!-- Status Colors -->
+            <SolidColorBrush x:Key="SuccessBrush" Color="#4CAF50"/>
+            <SolidColorBrush x:Key="WarningBrush" Color="#FF9800"/>
+            <SolidColorBrush x:Key="ErrorBrush" Color="#F44336"/>
+            <SolidColorBrush x:Key="InfoBrush" Color="#2196F3"/>
+
+            <!-- Dark Theme Colors -->
+            <SolidColorBrush x:Key="DarkBackgroundBrush" Color="#121212"/>
+            <SolidColorBrush x:Key="DarkSurfaceBrush" Color="#1E1E1E"/>
+            <SolidColorBrush x:Key="DarkTextBrush" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="DarkTextSecondaryBrush" Color="#B3B3B3"/>
+            <SolidColorBrush x:Key="DarkBorderBrush" Color="#333333"/>
+
+            <!-- =============================================== -->
+            <!-- TYPOGRAPHY -->
+            <!-- =============================================== -->
+            
+            <!-- Font Families -->
+            <FontFamily x:Key="PrimaryFontFamily">Segoe UI</FontFamily>
+            <FontFamily x:Key="SecondaryFontFamily">Consolas</FontFamily>
+            <FontFamily x:Key="IconFontFamily">Segoe MDL2 Assets</FontFamily>
+
+
+
+            <!-- Font Weights -->
+            <FontWeight x:Key="FontWeightLight">Light</FontWeight>
+            <FontWeight x:Key="FontWeightNormal">Normal</FontWeight>
+            <FontWeight x:Key="FontWeightMedium">Medium</FontWeight>
+            <FontWeight x:Key="FontWeightSemiBold">SemiBold</FontWeight>
+            <FontWeight x:Key="FontWeightBold">Bold</FontWeight>
+
+            <!-- Text Styles -->
+            <Style x:Key="Heading1Style" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            </Style>
+
+            <Style x:Key="Heading2Style" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontWeight" Value="{StaticResource FontWeightSemiBold}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            </Style>
+
+            <Style x:Key="BodyTextStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="{StaticResource FontWeightNormal}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            </Style>
+
+            <Style x:Key="CaptionTextStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontWeight" Value="{StaticResource FontWeightNormal}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+            </Style>
+
+            <Style x:Key="CodeTextStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource SecondaryFontFamily}"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontWeight" Value="{StaticResource FontWeightNormal}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="Background" Value="{StaticResource SurfaceVariantBrush}"/>
+                <Setter Property="Padding" Value="4,2"/>
+            </Style>
+
+
+
+            <!-- =============================================== -->
+            <!-- IMAGES -->
+            <!-- =============================================== -->
+            
+            <!-- Icon Images -->
+            <BitmapImage x:Key="IconArrowDown16" UriSource="pack://application:,,,/Assets/Images/Icons/ArrowDown16.ico"/>
+            <BitmapImage x:Key="IconArrowDown32" UriSource="pack://application:,,,/Assets/Images/Icons/ArrowDown32.ico"/>
+            <BitmapImage x:Key="IconArrowUp16" UriSource="pack://application:,,,/Assets/Images/Icons/ArrowUp16.ico"/>
+            <BitmapImage x:Key="IconArrowUp32" UriSource="pack://application:,,,/Assets/Images/Icons/ArrowUp32.ico"/>
+            <BitmapImage x:Key="IconDelete" UriSource="pack://application:,,,/Assets/Images/Icons/Delete.ico"/>
+            <BitmapImage x:Key="IconUser" UriSource="pack://application:,,,/Assets/Images/Icons/user.ico"/>
+            <BitmapImage x:Key="IconUserPass" UriSource="pack://application:,,,/Assets/Images/Icons/userpass.ico"/>
+            <BitmapImage x:Key="IconUserSet" UriSource="pack://application:,,,/Assets/Images/Icons/userset.ico"/>
+            <BitmapImage x:Key="IconWheel1" UriSource="pack://application:,,,/Assets/Images/Icons/Wheel16_1.ico"/>
+            <BitmapImage x:Key="IconWheel2" UriSource="pack://application:,,,/Assets/Images/Icons/Wheel16_2.ico"/>
+
+            <!-- UI Images -->
+            <BitmapImage x:Key="ImageBackground" UriSource="pack://application:,,,/Assets/Images/UI/Background.bmp"/>
+            <BitmapImage x:Key="ImageBag" UriSource="pack://application:,,,/Assets/Images/UI/Bag.bmp"/>
+            <BitmapImage x:Key="ImageBlueBarrel" UriSource="pack://application:,,,/Assets/Images/UI/Blue barrel.wmf"/>
+            <BitmapImage x:Key="ImageGreenBarrel" UriSource="pack://application:,,,/Assets/Images/UI/Green barrel.wmf"/>
+            <BitmapImage x:Key="ImageDB1" UriSource="pack://application:,,,/Assets/Images/UI/DB1.bmp"/>
+            <BitmapImage x:Key="ImageExit" UriSource="pack://application:,,,/Assets/Images/UI/exit1.bmp"/>
+            <BitmapImage x:Key="ImageFilling" UriSource="pack://application:,,,/Assets/Images/UI/filling.bmp"/>
+            <BitmapImage x:Key="ImageFilling2" UriSource="pack://application:,,,/Assets/Images/UI/filling2.bmp"/>
+            <BitmapImage x:Key="ImageGP1" UriSource="pack://application:,,,/Assets/Images/UI/gp1.bmp"/>
+            <BitmapImage x:Key="ImageHome" UriSource="pack://application:,,,/Assets/Images/UI/home.gif"/>
+            <BitmapImage x:Key="ImageMain" UriSource="pack://application:,,,/Assets/Images/UI/Main22-1.bmp"/>
+            <BitmapImage x:Key="ImagePrint" UriSource="pack://application:,,,/Assets/Images/UI/print.gif"/>
+            <BitmapImage x:Key="ImageSearch" UriSource="pack://application:,,,/Assets/Images/UI/Search.gif"/>
+            <BitmapImage x:Key="ImageSite" UriSource="pack://application:,,,/Assets/Images/UI/Site.bmp"/>
+            <BitmapImage x:Key="ImageTruck" UriSource="pack://application:,,,/Assets/Images/UI/槽车.bmp"/>
+
+            <!-- Background Images -->
+            <BitmapImage x:Key="BackgroundShutdown" UriSource="pack://application:,,,/Assets/Images/Backgrounds/Shutdown.jpg"/>
+
+            <!-- Image Styles -->
+            <Style x:Key="IconImageStyle" TargetType="Image">
+                <Setter Property="Stretch" Value="Uniform"/>
+                <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"/>
+            </Style>
+
+            <Style x:Key="SmallIconStyle" TargetType="Image" BasedOn="{StaticResource IconImageStyle}">
+                <Setter Property="Width" Value="16"/>
+                <Setter Property="Height" Value="16"/>
+            </Style>
+
+            <Style x:Key="MediumIconStyle" TargetType="Image" BasedOn="{StaticResource IconImageStyle}">
+                <Setter Property="Width" Value="24"/>
+                <Setter Property="Height" Value="24"/>
+            </Style>
+
+            <Style x:Key="LargeIconStyle" TargetType="Image" BasedOn="{StaticResource IconImageStyle}">
+                <Setter Property="Width" Value="32"/>
+                <Setter Property="Height" Value="32"/>
+            </Style>
+
+            <Style x:Key="BackgroundImageStyle" TargetType="Image">
+                <Setter Property="Stretch" Value="UniformToFill"/>
+                <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"/>
+            </Style>
+
+            <!-- =============================================== -->
+            <!-- CONTROLS -->
+            <!-- =============================================== -->
+            
+            <!-- Button Styles -->
+            <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Padding" Value="16,8"/>
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="{StaticResource FontWeightSemiBold}"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    CornerRadius="6" 
+                                    Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource PrimaryLightBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource PrimaryDarkBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" Value="{StaticResource BorderBrush}"/>
+                                    <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Padding" Value="16,8"/>
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="{StaticResource FontWeightSemiBold}"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}, FallbackValue=#E0E0E0}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="6" 
+                                    Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource SurfaceVariantBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource BorderBrush}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="IconButtonStyle" TargetType="Button" BasedOn="{StaticResource SecondaryButtonStyle}">
+                <Setter Property="Width" Value="32"/>
+                <Setter Property="Height" Value="32"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}, FallbackValue=#E0E0E0}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="4" 
+                                    Width="32" Height="32">
+                                <TextBlock Text="{TemplateBinding Content}" 
+                                         FontFamily="Segoe MDL2 Assets"
+                                         FontSize="16"
+                                         Foreground="{TemplateBinding Foreground}"
+                                         HorizontalAlignment="Center" 
+                                         VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource SurfaceVariantBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource BorderBrush}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- TextBox Style -->
+       <Style x:Key="ModernTextBoxStyle" TargetType="TextBox">
+  <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+  <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+  <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+  <Setter Property="BorderThickness" Value="1"/>
+  <Setter Property="Padding" Value="12,8"/>
+  <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+  <Setter Property="FontSize" Value="14"/>
+  <Setter Property="MinHeight" Value="36"/>
+  <Setter Property="VerticalContentAlignment" Value="Center"/>
+  <Setter Property="SnapsToDevicePixels" Value="True"/>
+  <Setter Property="UseLayoutRounding" Value="True"/>
+
+  <Style.Triggers>
+    <Trigger Property="IsMouseOver" Value="True">
+      <Setter Property="BorderBrush" Value="{StaticResource PrimaryLightBrush}"/>
+    </Trigger>
+    <Trigger Property="IsKeyboardFocused" Value="True">
+      <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
+    </Trigger>
+  </Style.Triggers>
+</Style>
+
+            <!-- ComboBox Style -->
+            <Style x:Key="ModernComboBoxStyle" TargetType="ComboBox">
+                <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Padding" Value="12,8"/>
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+
+            <!-- DatePicker Style -->
+            <Style x:Key="ModernDatePickerStyle" TargetType="DatePicker">
+                <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Padding" Value="12,8"/>
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+
+            <!-- PasswordBox Style -->
+            <Style x:Key="ModernPasswordBoxStyle" TargetType="PasswordBox">
+                <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Padding" Value="12,8"/>
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Style.Triggers>
+                    <Trigger Property="IsFocused" Value="True">
+                        <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="BorderBrush" Value="{StaticResource PrimaryLightBrush}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- DataGrid Style -->
+            <Style x:Key="ModernDataGridStyle" TargetType="DataGrid">
+                <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+                <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource BorderBrush}"/>
+                <Setter Property="AlternatingRowBackground" Value="{StaticResource SurfaceVariantBrush}"/>
+                <Setter Property="RowHeaderWidth" Value="0"/>
+                <Setter Property="CanUserAddRows" Value="False"/>
+                <Setter Property="CanUserDeleteRows" Value="False"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="AutoGenerateColumns" Value="True"/>
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="HeadersVisibility" Value="Column"/>
+                <Setter Property="SelectionMode" Value="Single"/>
+                <Setter Property="SelectionUnit" Value="FullRow"/>
+            </Style>
+
+            <!-- =============================================== -->
+            <!-- CONVERTERS AND GLOBAL STYLES -->
+            <!-- =============================================== -->
+            
+            <!-- Converters -->
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
+            <!-- Global Styles -->
+            <Style TargetType="Window">
+                <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+
+            <Style TargetType="UserControl">
+                <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+                <Setter Property="FontFamily" Value="{StaticResource PrimaryFontFamily}"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+
+            <Style TargetType="Grid">
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+
+            <Style TargetType="StackPanel">
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+
+            <Style TargetType="DockPanel">
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+
+            <!-- Default Button Style -->
+            <Style TargetType="Button" BasedOn="{StaticResource PrimaryButtonStyle}"/>
+
+            <!-- Default TextBox Style -->
+            <Style TargetType="TextBox" BasedOn="{StaticResource ModernTextBoxStyle}"/>
+
+            <!-- Default ComboBox Style -->
+            <Style TargetType="ComboBox" BasedOn="{StaticResource ModernComboBoxStyle}"/>
+
+            <!-- Default DatePicker Style -->
+            <Style TargetType="DatePicker" BasedOn="{StaticResource ModernDatePickerStyle}"/>
+
+            <!-- Default DataGrid Style -->
+            <Style TargetType="DataGrid" BasedOn="{StaticResource ModernDataGridStyle}"/>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

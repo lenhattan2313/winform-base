@@ -14,22 +14,13 @@
             <!-- Left side navigation buttons -->
             <StackPanel Orientation="Horizontal" Grid.Column="0">
                 <Button Width="120" Margin="5" Click="Alarm_Click" Style="{StaticResource SecondaryButtonStyle}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{StaticResource IconAlarm}" Style="{StaticResource IconStyle}" Margin="0,0,8,0"/>
-                        <TextBlock Text="Alarm"/>
-                    </StackPanel>
+                    <TextBlock Text="Alarm"/>
                 </Button>
                 <Button Width="120" Margin="5" Click="Report_Click" Style="{StaticResource SecondaryButtonStyle}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{StaticResource IconReport}" Style="{StaticResource IconStyle}" Margin="0,0,8,0"/>
-                        <TextBlock Text="Report"/>
-                    </StackPanel>
+                    <TextBlock Text="Report"/>
                 </Button>
                 <Button Width="120" Margin="5" Click="Setting_Click" Style="{StaticResource SecondaryButtonStyle}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{StaticResource IconSettings}" Style="{StaticResource IconStyle}" Margin="0,0,8,0"/>
-                        <TextBlock Text="Setting"/>
-                    </StackPanel>
+                    <TextBlock Text="Setting"/>
                 </Button>
             </StackPanel>
             
@@ -40,10 +31,7 @@
                     Click="Logout_Click" 
                     Style="{StaticResource SecondaryButtonStyle}"
                     HorizontalAlignment="Right">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="🚪" Style="{StaticResource IconStyle}" Margin="0,0,8,0"/>
-                    <TextBlock Text="Đăng xuất"/>
-                </StackPanel>
+                <TextBlock Text="Đăng xuất"/>
             </Button>
         </Grid>
 
