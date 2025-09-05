@@ -27,6 +27,7 @@ namespace MyDashboard.WPF
         private void Setting_Click(object sender, RoutedEventArgs e) => ContentArea.Content = new SettingPage();
         
         private async void Logout_Click(object sender, RoutedEventArgs e)
+        
         {
             try
             {
