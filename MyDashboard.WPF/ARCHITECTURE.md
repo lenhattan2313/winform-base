@@ -39,7 +39,12 @@ MyDashboard.WPF/
 ├── Views/           # XAML UI definitions
 ├── Services/        # Business logic services
 ├── Helpers/         # Utility classes
-└── Resources/       # Styles and templates
+└── Assets/          # All application assets
+    ├── Images/      # Image files (PNG, JPG, SVG)
+    ├── Icons/       # Icon files and icon fonts
+    ├── Fonts/       # Custom fonts
+    ├── Styles/      # Resource dictionaries
+    └── Data/        # Static data and config files
 ```
 
 ### 4. Layout Best Practices
@@ -141,9 +146,12 @@ MyDashboard.WPF/
 
 ### Style and Resource Management
 
-- ✅ **Centralized**: All styles in App.xaml or ResourceDictionary
+- ✅ **Centralized**: All styles in Assets/Styles/ resource dictionaries
+- ✅ **Modular**: Separate dictionaries for Colors, Typography, Controls, Icons
 - ✅ **Reusable**: Common button, textbox, and grid styles
 - ✅ **Consistent**: Color scheme and typography
+- ✅ **Icon System**: Segoe MDL2 Assets font for consistent icons
+- ✅ **Asset Organization**: Structured folders for Images, Icons, Fonts, Data
 
 ### Error Handling
 
@@ -168,6 +176,81 @@ MyDashboard.WPF/
 3. **Logging**: Structured logging implementation
 4. **Performance**: Virtualization for large datasets
 5. **Theming**: Dark/Light theme support
+
+## Asset Management
+
+### Asset Organization
+
+The project uses a structured approach to manage all application assets:
+
+#### 1. Resource Dictionaries
+
+- **Colors.xaml**: Color palette and theme colors
+- **Typography.xaml**: Font families, sizes, and text styles
+- **Controls.xaml**: Control templates and styles
+- **Icons.xaml**: Icon definitions and icon styles
+- **AppResources.xaml**: Main resource dictionary that merges all others
+
+#### 2. Asset Folders
+
+```
+Assets/
+├── Images/          # Image files (PNG, JPG, SVG)
+│   ├── Icons/      # Application icons
+│   ├── Backgrounds/ # Background images
+│   ├── Logos/      # Company/product logos
+│   └── Illustrations/ # UI illustrations
+├── Icons/          # Icon files and icon fonts
+├── Fonts/          # Custom fonts
+├── Styles/         # Resource dictionaries
+└── Data/           # Static data and config files
+    ├── Config/     # Configuration files
+    ├── Mock/      # Mock data for development
+    └── Templates/ # File templates
+```
+
+### Asset Usage Patterns
+
+#### Icons
+
+```xml
+<!-- Using icon font -->
+<TextBlock Text="{StaticResource IconSearch}" Style="{StaticResource IconStyle}"/>
+
+<!-- Icon button -->
+<Button Style="{StaticResource IconButtonStyle}" Content="{StaticResource IconSettings}"/>
+```
+
+#### Images
+
+```xml
+<!-- Image control -->
+<Image Source="pack://application:,,,/Assets/Images/logo.png" Width="100" Height="50"/>
+
+<!-- Background image -->
+<Border>
+    <Border.Background>
+        <ImageBrush ImageSource="pack://application:,,,/Assets/Images/background.jpg"/>
+    </Border.Background>
+</Border>
+```
+
+#### Data Files
+
+```csharp
+// Loading configuration
+var resourceStream = Application.GetResourceStream(
+    new Uri("pack://application:,,,/Assets/Data/Config/settings.json"));
+```
+
+### Best Practices
+
+1. **Consistent Naming**: Use snake_case or camelCase for file names
+2. **Optimize Assets**: Compress images and use appropriate formats
+3. **Resource Keys**: Use descriptive names for resource keys
+4. **Modular Styles**: Separate concerns into different resource dictionaries
+5. **Icon Fonts**: Prefer icon fonts over image icons for scalability
+6. **Asset Versioning**: Track changes to important assets
 
 ## Getting Started
 

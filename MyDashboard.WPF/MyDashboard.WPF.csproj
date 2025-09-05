@@ -11,4 +11,21 @@
     <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <!-- Resource Dictionaries -->
+    <Resource Include="Assets\Styles\**\*.xaml" />
+    
+    <!-- Images -->
+    <Resource Include="Assets\Images\**\*" />
+    
+    <!-- Icons -->
+    <Resource Include="Assets\Icons\**\*" />
+    
+    <!-- Fonts -->
+    <Resource Include="Assets\Fonts\**\*" />
+    
+    <!-- Data Files -->
+    <Resource Include="Assets\Data\**\*" />
+  </ItemGroup>
+
 </Project>

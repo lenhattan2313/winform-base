@@ -1,0 +1,80 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Icon Font Family -->
+    <FontFamily x:Key="IconFontFamily">Segoe MDL2 Assets</FontFamily>
+
+    <!-- Common Icons as Text -->
+    <x:String x:Key="IconHome">&#xE80F;</x:String>
+    <x:String x:Key="IconSettings">&#xE713;</x:String>
+    <x:String x:Key="IconSearch">&#xE721;</x:String>
+    <x:String x:Key="IconFilter">&#xE71C;</x:String>
+    <x:String x:Key="IconRefresh">&#xE72C;</x:String>
+    <x:String x:Key="IconSave">&#xE74E;</x:String>
+    <x:String x:Key="IconCancel">&#xE711;</x:String>
+    <x:String x:Key="IconEdit">&#xE70F;</x:String>
+    <x:String x:Key="IconDelete">&#xE74D;</x:String>
+    <x:String x:Key="IconAdd">&#xE710;</x:String>
+    <x:String x:Key="IconAlarm">&#xE7E7;</x:String>
+    <x:String x:Key="IconReport">&#xE7C3;</x:String>
+    <x:String x:Key="IconChart">&#xE9D2;</x:String>
+    <x:String x:Key="IconDownload">&#xE792;</x:String>
+    <x:String x:Key="IconUpload">&#xE898;</x:String>
+    <x:String x:Key="IconPrint">&#xE749;</x:String>
+    <x:String x:Key="IconExport">&#xE792;</x:String>
+    <x:String x:Key="IconImport">&#xE898;</x:String>
+    <x:String x:Key="IconUser">&#xE77B;</x:String>
+    <x:String x:Key="IconLock">&#xE72E;</x:String>
+    <x:String x:Key="IconUnlock">&#xE785;</x:String>
+    <x:String x:Key="IconInfo">&#xE946;</x:String>
+    <x:String x:Key="IconWarning">&#xE7BA;</x:String>
+    <x:String x:Key="IconError">&#xE783;</x:String>
+    <x:String x:Key="IconSuccess">&#xE73E;</x:String>
+    <x:String x:Key="IconCalendar">&#xE787;</x:String>
+    <x:String x:Key="IconClock">&#xE121;</x:String>
+    <x:String x:Key="IconLocation">&#xE81D;</x:String>
+    <x:String x:Key="IconMail">&#xE715;</x:String>
+    <x:String x:Key="IconPhone">&#xE717;</x:String>
+
+    <!-- Icon Style -->
+    <Style x:Key="IconStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource IconFontFamily}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="IconButtonStyle" TargetType="Button" BasedOn="{StaticResource SecondaryButtonStyle}">
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4" 
+                            Width="32" Height="32">
+                        <TextBlock Text="{TemplateBinding Content}" 
+                                 FontFamily="{StaticResource IconFontFamily}"
+                                 FontSize="16"
+                                 Foreground="{TemplateBinding Foreground}"
+                                 HorizontalAlignment="Center" 
+                                 VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource SurfaceVariantBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{StaticResource BorderBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
