@@ -1,6 +1,6 @@
 using System.Windows.Controls;
 
-namespace MyDashboard.WPF.Views
+namespace MyDashboard.WPF.Views.Setting
 {
     public partial class SettingPage : UserControl
     {

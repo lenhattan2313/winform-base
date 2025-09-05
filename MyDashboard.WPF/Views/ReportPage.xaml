@@ -1,7 +1,0 @@
-<UserControl x:Class="MyDashboard.WPF.Views.ReportPage"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid>
-        <TextBlock Text="Report Page" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-    </Grid>
-</UserControl>
