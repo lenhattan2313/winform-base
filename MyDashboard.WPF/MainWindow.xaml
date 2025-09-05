@@ -13,6 +13,12 @@
             
             <!-- Left side navigation buttons -->
             <StackPanel Orientation="Horizontal" Grid.Column="0">
+                <Button Width="120" Margin="5" Click="Main_Click" Style="{StaticResource SecondaryButtonStyle}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🏠" Style="{StaticResource IconStyle}" Margin="0,0,8,0"/>
+                        <TextBlock Text="Main"/>
+                    </StackPanel>
+                </Button>
                 <Button Width="120" Margin="5" Click="Alarm_Click" Style="{StaticResource SecondaryButtonStyle}">
                     <TextBlock Text="Alarm"/>
                 </Button>

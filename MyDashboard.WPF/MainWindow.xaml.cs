@@ -2,6 +2,7 @@ using System;
 using System.Windows;
 using MyDashboard.WPF.Views;
 using MyDashboard.WPF.Views.Auth;
+using MyDashboard.WPF.Views.Main;
 using MyDashboard.WPF.Views.Alarm;
 using MyDashboard.WPF.Views.Report;
 using MyDashboard.WPF.Views.Setting;
@@ -26,7 +27,7 @@ namespace MyDashboard.WPF
             // Check authentication status before loading content
             if (_authManager.IsAuthenticated)
             {
-                ContentArea.Content = new AlarmPage();
+                ContentArea.Content = new MainPage();
             }
             else
             {
@@ -35,6 +36,7 @@ namespace MyDashboard.WPF
             }
         }
 
+        private void Main_Click(object sender, RoutedEventArgs e) => NavigateToPage(() => new MainPage());
         private void Alarm_Click(object sender, RoutedEventArgs e) => NavigateToPage(() => new AlarmPage());
         private void Report_Click(object sender, RoutedEventArgs e) => NavigateToPage(() => new ReportPage());
         private void Setting_Click(object sender, RoutedEventArgs e) => NavigateToPage(() => new SettingPage());
