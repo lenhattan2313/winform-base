@@ -9,11 +9,11 @@ namespace MyDashboard.WPF.ViewModels
 {
     public class AlarmViewModel : INotifyPropertyChanged
     {
-        private readonly AlarmService _alarmService = new();
+        private readonly AlarmService _alarmService;
 
         public ObservableCollection<AlarmRecord> Alarms { get; } = new();
 
-        public ObservableCollection<string> Lines { get; } = new() { "All", "Line1", "Line2" };
+        public ObservableCollection<string> Lines { get; } = new() { "All", "Line1", "Line2", "Line3" };
 
         private string _selectedLine = "All";
         public string SelectedLine
@@ -44,19 +44,31 @@ namespace MyDashboard.WPF.ViewModels
         }
 
         public ICommand SearchCommand { get; }
+        public ICommand ClearFiltersCommand { get; }
 
-        public AlarmViewModel()
+        public AlarmViewModel(AlarmService alarmService)
         {
+            _alarmService = alarmService;
             SearchCommand = new RelayCommand(_ => LoadAlarms());
+            ClearFiltersCommand = new RelayCommand(_ => ClearFilters());
             LoadAlarms();
         }
 
-        private void LoadAlarms()
+        private async void LoadAlarms()
         {
             Alarms.Clear();
-            var data = _alarmService.GetAlarms(SelectedLine, FromDate, ToDate, SearchText);
+            var data = await _alarmService.GetAlarmsAsync(SelectedLine, FromDate, ToDate, SearchText);
             foreach (var alarm in data)
                 Alarms.Add(alarm);
+        }
+
+        private void ClearFilters()
+        {
+            SelectedLine = "All";
+            SearchText = string.Empty;
+            FromDate = DateTime.Today.AddDays(-7);
+            ToDate = DateTime.Today;
+            LoadAlarms();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

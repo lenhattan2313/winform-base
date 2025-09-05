@@ -1,13 +1,11 @@
-<UserControl x:Class="MyDashboard.WPF.Views.AlarmPage"
+<UserControl x:Class="MyDashboard.WPF.Views.Alarm.AlarmPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:MyDashboard.WPF.ViewModels"
              mc:Ignorable="d">
-    <UserControl.DataContext>
-        <vm:AlarmViewModel />
-    </UserControl.DataContext>
+    <!-- DataContext will be set in code-behind using dependency injection -->
 
     <Grid>
         <Grid.RowDefinitions>
@@ -26,7 +24,6 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
@@ -40,12 +37,18 @@
                     <TextBlock Text="Search"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Column="5" Width="32" Height="32" Margin="5" Style="{StaticResource IconButtonStyle}">
-                <Image Source="{StaticResource IconUser}" Style="{StaticResource SmallIconStyle}"/>
+            <Button Grid.Column="5" Command="{Binding ClearFiltersCommand}" Width="100" Margin="5" Style="{StaticResource SecondaryButtonStyle}">
+                <TextBlock Text="Clear Filters"/>
             </Button>
         </Grid>
 
         <!-- Table -->
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Alarms}" AutoGenerateColumns="True" Margin="10" Style="{StaticResource ModernDataGridStyle}"/>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Alarms}" AutoGenerateColumns="False" Margin="10" Style="{StaticResource ModernDataGridStyle}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date/Time" Binding="{Binding DateTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" Width="150"/>
+                <DataGridTextColumn Header="Line" Binding="{Binding Line}" Width="80"/>
+                <DataGridTextColumn Header="Alarm Message" Binding="{Binding Message}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
