@@ -4,6 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:MyDashboard.WPF.ViewModels"
+             xmlns:main="clr-namespace:MyDashboard.WPF.Views.Main"
              mc:Ignorable="d">
     <!-- DataContext will be set in code-behind using dependency injection -->
 
@@ -16,12 +17,12 @@
         <!-- Header -->
         <Border Grid.Row="0" Background="{StaticResource PrimaryBrush}" Padding="20" Margin="10">
             <StackPanel>
-                <TextBlock Text="Dashboard Overview" 
+                <TextBlock Text="Industrial Weighing System" 
                           FontSize="24" 
                           FontWeight="Bold" 
                           Foreground="White" 
                           HorizontalAlignment="Center"/>
-                <TextBlock Text="Welcome to the main dashboard" 
+                <TextBlock Text="Real-time monitoring and control dashboard" 
                           FontSize="14" 
                           Foreground="White" 
                           HorizontalAlignment="Center" 
@@ -30,21 +31,39 @@
         </Border>
 
         <!-- Main Content Area -->
-        <Grid Grid.Row="1" Margin="10">
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Text="Main Dashboard" 
-                          FontSize="32" 
+        <ScrollViewer Grid.Row="1" Margin="10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock Text="Weighing System Dashboard" 
+                          FontSize="24" 
                           FontWeight="Bold" 
                           Foreground="{StaticResource TextBrush}" 
                           HorizontalAlignment="Center"
                           Margin="0,0,0,20"/>
-                <TextBlock Text="This is the main page of your dashboard application." 
-                          FontSize="16" 
-                          Foreground="{StaticResource TextSecondaryBrush}" 
-                          HorizontalAlignment="Center"
-                          TextWrapping="Wrap"
-                          TextAlignment="Center"/>
+                
+                <!-- Weighing System Components -->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Component 1 -->
+                    <main:WeighingSystem Grid.Row="0" Grid.Column="0" Margin="5"/>
+                    
+                    <!-- Component 2 -->
+                    <main:WeighingSystem Grid.Row="0" Grid.Column="1" Margin="5"/>
+                    
+                    <!-- Component 3 -->
+                    <main:WeighingSystem Grid.Row="1" Grid.Column="0" Margin="5"/>
+                    
+                    <!-- Component 4 -->
+                    <main:WeighingSystem Grid.Row="1" Grid.Column="1" Margin="5"/>
+                </Grid>
             </StackPanel>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>
