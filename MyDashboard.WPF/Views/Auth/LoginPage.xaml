@@ -1,0 +1,98 @@
+<Window x:Class="MyDashboard.WPF.Views.Auth.LoginPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:MyDashboard.WPF.ViewModels"
+        Title="Login - My Dashboard" 
+        Height="500" 
+        Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{StaticResource SurfaceBrush}">
+    
+    <Window.DataContext>
+        <vm:LoginViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="{StaticResource PrimaryBrush}" Padding="20">
+            <StackPanel>
+                <TextBlock Text="My Dashboard" 
+                          FontSize="24" 
+                          FontWeight="Bold" 
+                          Foreground="White" 
+                          HorizontalAlignment="Center"/>
+                <TextBlock Text="Industrial Monitoring System" 
+                          FontSize="14" 
+                          Foreground="White" 
+                          HorizontalAlignment="Center" 
+                          Margin="0,5,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Login Form -->
+        <StackPanel Grid.Row="1" Margin="40" VerticalAlignment="Center">
+            <TextBlock Text="Sign In" 
+                      FontSize="20" 
+                      FontWeight="SemiBold" 
+                      Foreground="{StaticResource TextBrush}" 
+                      HorizontalAlignment="Center" 
+                      Margin="0,0,0,30"/>
+
+            <!-- Username -->
+            <TextBlock Text="Username" 
+                      FontSize="14" 
+                      Foreground="{StaticResource TextBrush}" 
+                      Margin="0,0,0,5"/>
+            <TextBox x:Name="UsernameTextBox"
+                    Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource ModernTextBoxStyle}"
+                    Margin="0,0,0,20"
+                    Height="40"/>
+
+            <!-- Password -->
+            <TextBlock Text="Password" 
+                      FontSize="14" 
+                      Foreground="{StaticResource TextBrush}" 
+                      Margin="0,0,0,5"/>
+            <PasswordBox x:Name="PasswordBox"
+                        Style="{StaticResource ModernPasswordBoxStyle}"
+                        Margin="0,0,0,30"
+                        Height="40"/>
+
+            <!-- Login Button -->
+            <Button Content="Sign In" 
+                   Command="{Binding LoginCommand}"
+                   Style="{StaticResource PrimaryButtonStyle}"
+                   Height="45"
+                   FontSize="16"
+                   FontWeight="SemiBold"
+                   Margin="0,0,0,20"/>
+
+            <!-- Error Message -->
+            <TextBlock Text="{Binding ErrorMessage}" 
+                      Foreground="Red" 
+                      HorizontalAlignment="Center" 
+                      TextWrapping="Wrap"
+                      Visibility="{Binding HasError, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+            <!-- Loading Indicator -->
+            <StackPanel Orientation="Horizontal" 
+                       HorizontalAlignment="Center"
+                       Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock Text="Signing in..." 
+                          Foreground="{StaticResource TextSecondaryBrush}" 
+                          Margin="0,0,10,0"/>
+                <ProgressBar Width="100" 
+                            Height="4" 
+                            IsIndeterminate="True"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

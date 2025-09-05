@@ -2,9 +2,7 @@ using System;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using MyDashboard.WPF.Configuration;
-using MyDashboard.WPF.Data;
-using MyDashboard.WPF.Repositories;
-using MyDashboard.WPF.Services;
+using MyDashboard.WPF.Views.Auth;
 
 namespace MyDashboard.WPF
 {
@@ -18,6 +16,11 @@ namespace MyDashboard.WPF
 
             // Configure services for REST API
             ServiceProvider = ServiceConfiguration.ConfigureServices();
+
+            // Show login page first
+            var loginWindow = new LoginPage();
+            loginWindow.Show();
+            MainWindow = loginWindow;
         }
     }
 }
