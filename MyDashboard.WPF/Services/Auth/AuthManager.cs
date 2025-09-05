@@ -12,7 +12,7 @@ namespace MyDashboard.WPF.Services.Auth
         private string _refreshToken;
         private DateTime _tokenExpiresAt;
 
-        public AuthManager(IAuthApiService apiService)
+        public AuthManager(IAuthApiService apiService = null)
         {
             _apiService = apiService;
         }
@@ -56,19 +56,24 @@ namespace MyDashboard.WPF.Services.Auth
 
             try
             {
-                var response = await _apiService.RefreshTokenAsync(_refreshToken);
-                if (response.Success)
+                if (_apiService != null)
                 {
-                    SetUser(response);
-                    return true;
+                    var refreshResponse = await _apiService.RefreshTokenAsync(_refreshToken);
+                    if (refreshResponse.Success)
+                    {
+                        _token = refreshResponse.Token;
+                        _refreshToken = refreshResponse.RefreshToken;
+                        _tokenExpiresAt = refreshResponse.ExpiresAt;
+                        return true;
+                    }
                 }
+                return false;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Token refresh failed: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"Token refresh error: {ex.Message}");
+                return false;
             }
-
-            return false;
         }
     }
 }

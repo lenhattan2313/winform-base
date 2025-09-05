@@ -2,6 +2,9 @@ using System;
 using System.Windows;
 using MyDashboard.WPF.Views;
 using MyDashboard.WPF.Views.Auth;
+using MyDashboard.WPF.Views.Alarm;
+using MyDashboard.WPF.Views.Report;
+using MyDashboard.WPF.Views.Setting;
 using MyDashboard.WPF.Services.Auth;
 using Microsoft.Extensions.DependencyInjection;
 

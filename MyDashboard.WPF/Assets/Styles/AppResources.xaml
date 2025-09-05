@@ -3,12 +3,15 @@
 
     <!-- Merge all resource dictionaries -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Colors.xaml"/>
-        <ResourceDictionary Source="Typography.xaml"/>
-        <ResourceDictionary Source="Controls.xaml"/>
-        <ResourceDictionary Source="Icons.xaml"/>
-        <ResourceDictionary Source="Images.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Assets/Styles/Colors.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Assets/Styles/Typography.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Assets/Styles/Controls.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Assets/Styles/Icons.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Assets/Styles/Images.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+
+    <!-- Converters -->
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 
     <!-- Global Styles -->
     <Style TargetType="Window">

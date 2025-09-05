@@ -15,10 +15,10 @@ namespace MyDashboard.WPF.Services.Alarm
         private readonly IAlarmApiService _apiService;
         private readonly IConfiguration _configuration;
 
-        public AlarmService(IAlarmApiService apiService, IConfiguration configuration)
+        public AlarmService(IConfiguration configuration, IAlarmApiService apiService = null)
         {
-            _apiService = apiService;
             _configuration = configuration;
+            _apiService = apiService;
         }
 
         public async Task<List<AlarmRecord>> GetAlarmsAsync(string line, DateTime from, DateTime to, string search)
@@ -26,57 +26,75 @@ namespace MyDashboard.WPF.Services.Alarm
             // Check if we should use API or JSON mock data
             var useApi = _configuration.GetValue<bool>("UseApi", false);
             
-            if (useApi)
+            if (useApi && _apiService != null)
             {
+                return await GetAlarmsFromApiAsync(line, from, to, search);
+            }
+            else
+            {
+                return await GetAlarmsFromJsonAsync(line, from, to, search);
+            }
+        }
+
+        private async Task<List<AlarmRecord>> GetAlarmsFromApiAsync(string line, DateTime from, DateTime to, string search)
+        {
+            try
+            {
+                // Call API service with the correct parameters
                 return await _apiService.GetAlarmsAsync(line, from, to, search);
             }
-            else
+            catch (Exception ex)
             {
-                return await GetJsonAlarmDataAsync(line, from, to, search);
+                System.Diagnostics.Debug.WriteLine($"API Error: {ex.Message}");
+                // Fallback to JSON data if API fails
+                return await GetAlarmsFromJsonAsync(line, from, to, search);
             }
         }
 
-        private async Task<List<AlarmRecord>> GetJsonAlarmDataAsync(string line, DateTime from, DateTime to, string search)
+        private async Task<List<AlarmRecord>> GetAlarmsFromJsonAsync(string line, DateTime from, DateTime to, string search)
         {
-            // Load JSON data from embedded resource
-            var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "MyDashboard.WPF.Assets.Data.alarms.json";
-            
-            using var stream = assembly.GetManifestResourceStream(resourceName);
-            if (stream == null)
+            try
             {
-                // Fallback: try to load from file system
-                var jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Data", "alarms.json");
-                if (File.Exists(jsonPath))
+                // Get the path to the JSON file
+                var assembly = Assembly.GetExecutingAssembly();
+                var resourcePath = "MyDashboard.WPF.Data.alarms.json";
+                
+                using var stream = assembly.GetManifestResourceStream(resourcePath);
+                if (stream == null)
                 {
-                    var jsonContent = await File.ReadAllTextAsync(jsonPath);
-                    var jsonData = JsonConvert.DeserializeObject<List<AlarmRecord>>(jsonContent) ?? new List<AlarmRecord>();
-                    return ApplyFilters(jsonData, line, from, to, search);
+                    // Try file system path if embedded resource not found
+                    var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "alarms.json");
+                    if (File.Exists(filePath))
+                    {
+                        var fileContent = await File.ReadAllTextAsync(filePath);
+                        var fileAlarms = JsonConvert.DeserializeObject<List<AlarmRecord>>(fileContent) ?? new List<AlarmRecord>();
+                        return FilterAlarms(fileAlarms, line, from, to, search);
+                    }
+                    return new List<AlarmRecord>();
                 }
-            }
-            else
-            {
-                using var reader = new StreamReader(stream);
-                var jsonContent = await reader.ReadToEndAsync();
-                var jsonData = JsonConvert.DeserializeObject<List<AlarmRecord>>(jsonContent) ?? new List<AlarmRecord>();
-                return ApplyFilters(jsonData, line, from, to, search);
-            }
 
-            // Return empty list if no data found
-            return new List<AlarmRecord>();
+                using var reader = new StreamReader(stream);
+                var json = await reader.ReadToEndAsync();
+                var alarms = JsonConvert.DeserializeObject<List<AlarmRecord>>(json) ?? new List<AlarmRecord>();
+                
+                return FilterAlarms(alarms, line, from, to, search);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"JSON Loading Error: {ex.Message}");
+                return new List<AlarmRecord>();
+            }
         }
 
-        private List<AlarmRecord> ApplyFilters(List<AlarmRecord> data, string line, DateTime from, DateTime to, string search)
+        private List<AlarmRecord> FilterAlarms(List<AlarmRecord> alarms, string line, DateTime from, DateTime to, string search)
         {
-            var filteredData = data.Where(a => a.DateTime >= from && a.DateTime <= to).ToList();
-
-            if (!string.IsNullOrEmpty(line) && line != "All")
-                filteredData = filteredData.Where(a => a.Line == line).ToList();
-
-            if (!string.IsNullOrEmpty(search))
-                filteredData = filteredData.Where(a => a.Message.Contains(search, StringComparison.OrdinalIgnoreCase)).ToList();
-
-            return filteredData.OrderByDescending(a => a.DateTime).ToList();
+            return alarms.Where(alarm => 
+                (string.IsNullOrEmpty(line) || alarm.Line.Contains(line, StringComparison.OrdinalIgnoreCase)) &&
+                alarm.DateTime >= from && 
+                alarm.DateTime <= to &&
+                (string.IsNullOrEmpty(search) || 
+                 alarm.Message.Contains(search, StringComparison.OrdinalIgnoreCase))
+            ).ToList();
         }
     }
 }

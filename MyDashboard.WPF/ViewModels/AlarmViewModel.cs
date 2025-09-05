@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using MyDashboard.WPF.Models;
 using MyDashboard.WPF.Services;
+using MyDashboard.WPF.Services.Alarm;
 
 namespace MyDashboard.WPF.ViewModels
 {

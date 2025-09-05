@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Extensions.DependencyInjection;
-using MyDashboard.WPF.Helpers;
+
 using MyDashboard.WPF.Models;
 using MyDashboard.WPF.Services.Auth;
 

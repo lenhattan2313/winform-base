@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using MyDashboard.WPF.Models;
 
 namespace MyDashboard.WPF.Services.Auth

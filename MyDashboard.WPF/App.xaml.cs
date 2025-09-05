@@ -14,13 +14,22 @@ namespace MyDashboard.WPF
         {
             base.OnStartup(e);
 
-            // Configure services for REST API
-            ServiceProvider = ServiceConfiguration.ConfigureServices();
+            try
+            {
+                // Configure services for REST API
+                ServiceProvider = ServiceConfiguration.ConfigureServices();
 
-            // Show login page first
-            var loginWindow = new LoginPage();
-            loginWindow.Show();
-            MainWindow = loginWindow;
+                // Show login page first
+                var loginWindow = new LoginPage();
+                loginWindow.Show();
+                MainWindow = loginWindow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Application startup failed: {ex.Message}\n\nStack trace:\n{ex.StackTrace}", 
+                    "Startup Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Shutdown(1);
+            }
         }
     }
 }

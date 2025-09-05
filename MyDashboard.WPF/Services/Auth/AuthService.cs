@@ -11,11 +11,11 @@ namespace MyDashboard.WPF.Services.Auth
         private readonly IConfiguration _configuration;
         private readonly IAuthManager _authManager;
 
-        public AuthService(IAuthApiService apiService, IConfiguration configuration, IAuthManager authManager)
+        public AuthService(IConfiguration configuration, IAuthManager authManager, IAuthApiService apiService = null)
         {
-            _apiService = apiService;
             _configuration = configuration;
             _authManager = authManager;
+            _apiService = apiService;
         }
 
         public async Task<LoginResponse> LoginAsync(LoginRequest request)
@@ -23,7 +23,7 @@ namespace MyDashboard.WPF.Services.Auth
             // Check if we should use API or mock data
             var useApi = _configuration.GetValue<bool>("UseApi", false);
             
-            if (useApi)
+            if (useApi && _apiService != null)
             {
                 return await _apiService.LoginAsync(request);
             }
@@ -37,7 +37,7 @@ namespace MyDashboard.WPF.Services.Auth
         {
             var useApi = _configuration.GetValue<bool>("UseApi", false);
             
-            if (useApi)
+            if (useApi && _apiService != null)
             {
                 return await _apiService.LogoutAsync();
             }
