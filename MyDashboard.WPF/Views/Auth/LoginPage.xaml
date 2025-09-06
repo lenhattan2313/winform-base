@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:MyDashboard.WPF.ViewModels"
         Title="Login - My Dashboard" 
-        Height="500" 
+        Height="550" 
         Width="400"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
@@ -42,7 +42,7 @@
                       FontWeight="SemiBold" 
                       Foreground="{StaticResource TextBrush}" 
                       HorizontalAlignment="Center" 
-                      Margin="0,30,0,20"/>
+                      Margin="0,20,0,20"/>
 
             <!-- Username -->
             <TextBlock Text="Username" 
@@ -84,8 +84,8 @@
             <!-- Loading Indicator - Fixed height to prevent layout shift -->
             <StackPanel Orientation="Horizontal" 
                        HorizontalAlignment="Center"
-                       Height="25"
-                       Margin="0,10,0,0">
+                       Height="24"
+                       Margin="0,0,0,0">
                 <StackPanel Orientation="Horizontal"
                            Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <TextBlock Text="Signing in..." 
