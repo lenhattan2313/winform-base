@@ -42,6 +42,19 @@
             <SolidColorBrush x:Key="DarkTextSecondaryBrush" Color="#B3B3B3"/>
             <SolidColorBrush x:Key="DarkBorderBrush" Color="#333333"/>
 
+            <!-- Extra Background Colors -->
+            <SolidColorBrush x:Key="BackgroundBlueBrush" Color="#E3F2FD"/>
+            <SolidColorBrush x:Key="BackgroundGreenBrush" Color="#E8F5E9"/>
+            <SolidColorBrush x:Key="BackgroundYellowBrush" Color="#FFFDE7"/>
+            <SolidColorBrush x:Key="BackgroundRedBrush" Color="#FFEBEE"/>
+            <SolidColorBrush x:Key="BackgroundPurpleBrush" Color="#F3E5F5"/>
+            <SolidColorBrush x:Key="BackgroundGrayBrush" Color="#F0F0F0"/>
+            <SolidColorBrush x:Key="BackgroundDarkGrayBrush" Color="#2C2C2C"/>
+            <SolidColorBrush x:Key="CardBackground1" Color="#FAFAFA"/>
+            <SolidColorBrush x:Key="CardBackground2" Color="#E3F2FD"/>
+            <SolidColorBrush x:Key="BackgroundLightBrush" Color="#BBDEFB"/>
+            <!-- xám đậm cho dark mode -->
+
             <!-- =============================================== -->
             <!-- TYPOGRAPHY -->
             <!-- =============================================== -->
@@ -119,8 +132,6 @@
             <!-- UI Images -->
             <BitmapImage x:Key="ImageBackground" UriSource="pack://application:,,,/Assets/Images/UI/Background.bmp"/>
             <BitmapImage x:Key="ImageBag" UriSource="pack://application:,,,/Assets/Images/UI/Bag.bmp"/>
-            <BitmapImage x:Key="ImageBlueBarrel" UriSource="pack://application:,,,/Assets/Images/UI/Blue barrel.wmf"/>
-            <BitmapImage x:Key="ImageGreenBarrel" UriSource="pack://application:,,,/Assets/Images/UI/Green barrel.wmf"/>
             <BitmapImage x:Key="ImageDB1" UriSource="pack://application:,,,/Assets/Images/UI/DB1.bmp"/>
             <BitmapImage x:Key="ImageExit" UriSource="pack://application:,,,/Assets/Images/UI/exit1.bmp"/>
             <BitmapImage x:Key="ImageFilling" UriSource="pack://application:,,,/Assets/Images/UI/filling.bmp"/>

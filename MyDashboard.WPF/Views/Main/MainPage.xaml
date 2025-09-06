@@ -1,12 +1,8 @@
 <UserControl x:Class="MyDashboard.WPF.Views.Main.MainPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:MyDashboard.WPF.ViewModels"
              xmlns:main="clr-namespace:MyDashboard.WPF.Views.Main"
-             mc:Ignorable="d">
-    <!-- DataContext will be set in code-behind using dependency injection -->
+             Background="{StaticResource BackgroundLightBrush}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -14,49 +10,24 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Main Content Area -->
-        <ScrollViewer Grid.Row="1" Margin="10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <StackPanel>
-                <!-- Weighing System Components -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    
-                    <!-- First Row Components -->
-                    <!-- Component 1 -->
-                    <main:WeighingSystem Grid.Row="0" Grid.Column="0" Margin="5"/>
-                    
-                    <!-- Component 2 -->
-                    <main:WeighingSystem Grid.Row="0" Grid.Column="1" Margin="5"/>
-                    
-                    <!-- Component 3 -->
-                    <main:WeighingSystem Grid.Row="0" Grid.Column="2" Margin="5"/>
-                    
-                    <!-- Component 4 -->
-                    <main:WeighingSystem Grid.Row="0" Grid.Column="3" Margin="5"/>
-                    
-                    <!-- Second Row Components -->
-                    <!-- Component 5 -->
-                    <main:WeighingSystem Grid.Row="1" Grid.Column="0" Margin="5"/>
-                    
-                    <!-- Component 6 -->
-                    <main:WeighingSystem Grid.Row="1" Grid.Column="1" Margin="5"/>
-                    
-                    <!-- Component 7 -->
-                    <main:WeighingSystem Grid.Row="1" Grid.Column="2" Margin="5"/>
-                    
-                    <!-- Component 8 -->
-                    <main:WeighingSystem Grid.Row="1" Grid.Column="3" Margin="5"/>
-                </Grid>
-            </StackPanel>
+        <!-- Content -->
+        <ScrollViewer Grid.Row="1"
+              Margin="1"
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding WeighingSystems}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="4" Margin="5"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <main:WeighingSystem Data="{Binding}" Margin="3"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </ScrollViewer>
+
     </Grid>
 </UserControl>
