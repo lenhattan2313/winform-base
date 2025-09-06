@@ -1,5 +1,6 @@
 using System;
 using System.Windows;
+using System.Windows.Controls;
 using MyDashboard.WPF.Views;
 using MyDashboard.WPF.Views.Auth;
 using MyDashboard.WPF.Views.Main;
@@ -15,6 +16,7 @@ namespace MyDashboard.WPF
     {
         private readonly IAuthManager _authManager;
         private readonly AuthService _authService;
+        private Button _activeButton;
 
         public MainWindow()
         {
@@ -28,6 +30,7 @@ namespace MyDashboard.WPF
             if (_authManager.IsAuthenticated)
             {
                 ContentArea.Content = new MainPage();
+                SetActiveButton(MainButton); // Set Main as default active
             }
             else
             {
@@ -36,10 +39,29 @@ namespace MyDashboard.WPF
             }
         }
 
-        private void Main_Click(object sender, RoutedEventArgs e) => NavigateToPage(() => new MainPage());
-        private void Alarm_Click(object sender, RoutedEventArgs e) => NavigateToPage(() => new AlarmPage());
-        private void Report_Click(object sender, RoutedEventArgs e) => NavigateToPage(() => new ReportPage());
-        private void Setting_Click(object sender, RoutedEventArgs e) => NavigateToPage(() => new SettingPage());
+        private void Main_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateToPage(() => new MainPage());
+            SetActiveButton(MainButton);
+        }
+
+        private void Alarm_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateToPage(() => new AlarmPage());
+            SetActiveButton(AlarmButton);
+        }
+
+        private void Report_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateToPage(() => new ReportPage());
+            SetActiveButton(ReportButton);
+        }
+
+        private void Setting_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateToPage(() => new SettingPage());
+            SetActiveButton(SettingButton);
+        }
         
         private void NavigateToPage(Func<object> pageFactory)
         {
@@ -52,6 +74,22 @@ namespace MyDashboard.WPF
             }
             
             ContentArea.Content = pageFactory();
+        }
+
+        private void SetActiveButton(Button button)
+        {
+            // Reset previous active button to secondary style
+            if (_activeButton != null)
+            {
+                _activeButton.Style = (Style)FindResource("SecondaryButtonStyle");
+            }
+
+            // Set new active button
+            _activeButton = button;
+            if (_activeButton != null)
+            {
+                _activeButton.Style = (Style)FindResource("ActiveNavButtonStyle");
+            }
         }
         
         private async void Logout_Click(object sender, RoutedEventArgs e)

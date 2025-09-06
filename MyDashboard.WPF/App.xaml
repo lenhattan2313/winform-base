@@ -13,6 +13,7 @@
             <SolidColorBrush x:Key="PrimaryLightBrush" Color="#64B5F6"/>
             <SolidColorBrush x:Key="PrimaryDarkBrush" Color="#1976D2"/>
             <SolidColorBrush x:Key="PrimaryAccentBrush" Color="#1565C0"/>
+            <SolidColorBrush x:Key="PrimaryGreenBrush" Color="#39FF14"/>
 
             <!-- Secondary Color Palette -->
             <SolidColorBrush x:Key="SecondaryBrush" Color="#FFC107"/>
@@ -260,6 +261,32 @@
                                 </Trigger>
                                 <Trigger Property="IsPressed" Value="True">
                                     <Setter Property="Background" Value="{StaticResource BorderBrush}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Active Navigation Button Style -->
+            <Style x:Key="ActiveNavButtonStyle" TargetType="Button" BasedOn="{StaticResource SecondaryButtonStyle}">
+                <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    CornerRadius="6" 
+                                    Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource PrimaryLightBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource PrimaryDarkBrush}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>

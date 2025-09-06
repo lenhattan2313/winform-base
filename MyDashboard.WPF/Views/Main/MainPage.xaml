@@ -25,18 +25,36 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
                     
+                    <!-- First Row Components -->
                     <!-- Component 1 -->
-                    <main:WeighingSystem Grid.Column="0" Margin="5"/>
+                    <main:WeighingSystem Grid.Row="0" Grid.Column="0" Margin="5"/>
                     
                     <!-- Component 2 -->
-                    <main:WeighingSystem Grid.Column="1" Margin="5"/>
+                    <main:WeighingSystem Grid.Row="0" Grid.Column="1" Margin="5"/>
                     
                     <!-- Component 3 -->
-                    <main:WeighingSystem Grid.Column="2" Margin="5"/>
+                    <main:WeighingSystem Grid.Row="0" Grid.Column="2" Margin="5"/>
                     
                     <!-- Component 4 -->
-                    <main:WeighingSystem Grid.Column="3" Margin="5"/>
+                    <main:WeighingSystem Grid.Row="0" Grid.Column="3" Margin="5"/>
+                    
+                    <!-- Second Row Components -->
+                    <!-- Component 5 -->
+                    <main:WeighingSystem Grid.Row="1" Grid.Column="0" Margin="5"/>
+                    
+                    <!-- Component 6 -->
+                    <main:WeighingSystem Grid.Row="1" Grid.Column="1" Margin="5"/>
+                    
+                    <!-- Component 7 -->
+                    <main:WeighingSystem Grid.Row="1" Grid.Column="2" Margin="5"/>
+                    
+                    <!-- Component 8 -->
+                    <main:WeighingSystem Grid.Row="1" Grid.Column="3" Margin="5"/>
                 </Grid>
             </StackPanel>
         </ScrollViewer>

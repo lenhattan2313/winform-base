@@ -13,18 +13,18 @@
             
             <!-- Left side navigation buttons -->
             <StackPanel Orientation="Horizontal" Grid.Column="0">
-                <Button Width="120" Margin="5" Click="Main_Click" Style="{StaticResource SecondaryButtonStyle}">
+                <Button x:Name="MainButton" Width="120" Margin="5" Click="Main_Click" Style="{StaticResource SecondaryButtonStyle}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Main"/>
                     </StackPanel>
                 </Button>
-                <Button Width="120" Margin="5" Click="Alarm_Click" Style="{StaticResource SecondaryButtonStyle}">
+                <Button x:Name="AlarmButton" Width="120" Margin="5" Click="Alarm_Click" Style="{StaticResource SecondaryButtonStyle}">
                     <TextBlock Text="Alarm"/>
                 </Button>
-                <Button Width="120" Margin="5" Click="Report_Click" Style="{StaticResource SecondaryButtonStyle}">
+                <Button x:Name="ReportButton" Width="120" Margin="5" Click="Report_Click" Style="{StaticResource SecondaryButtonStyle}">
                     <TextBlock Text="Report"/>
                 </Button>
-                <Button Width="120" Margin="5" Click="Setting_Click" Style="{StaticResource SecondaryButtonStyle}">
+                <Button x:Name="SettingButton" Width="120" Margin="5" Click="Setting_Click" Style="{StaticResource SecondaryButtonStyle}">
                     <TextBlock Text="Setting"/>
                 </Button>
             </StackPanel>
