@@ -59,6 +59,7 @@ namespace MyDashboard.WPF.ViewModels
         {
             Alarms.Clear();
             var data = await _alarmService.GetAlarmsAsync(SelectedLine, FromDate, ToDate, SearchText);
+            System.Diagnostics.Debug.WriteLine($"Loaded {data.Count} alarms");
             foreach (var alarm in data)
                 Alarms.Add(alarm);
         }

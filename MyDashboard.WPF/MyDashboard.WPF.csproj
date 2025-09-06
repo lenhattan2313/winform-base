@@ -32,9 +32,13 @@
     
     <!-- Data Files -->
     <Resource Include="Assets\Data\**\*" />
+    <None Remove="Data\alarms.json" />
     
     <!-- Configuration Files -->
     <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\alarms.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

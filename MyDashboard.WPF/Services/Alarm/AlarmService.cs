@@ -68,6 +68,15 @@ namespace MyDashboard.WPF.Services.Alarm
                     {
                         var fileContent = await File.ReadAllTextAsync(filePath);
                         var fileAlarms = JsonConvert.DeserializeObject<List<AlarmRecord>>(fileContent) ?? new List<AlarmRecord>();
+                        System.Diagnostics.Debug.WriteLine($"Loaded {fileAlarms.Count} alarms from file system");
+                        
+                        // Add debug logging for filter parameters
+                        System.Diagnostics.Debug.WriteLine($"Filter Parameters - Line: '{line}', From: {from:yyyy-MM-dd}, To: {to:yyyy-MM-dd}, Search: '{search}'");
+                        if (fileAlarms.Count > 0)
+                        {
+                            System.Diagnostics.Debug.WriteLine($"Sample alarm dates: {fileAlarms[0].DateTime:yyyy-MM-dd}, {fileAlarms[Math.Min(1, fileAlarms.Count - 1)].DateTime:yyyy-MM-dd}");
+                        }
+                        
                         return FilterAlarms(fileAlarms, line, from, to, search);
                     }
                     return new List<AlarmRecord>();
@@ -88,13 +97,16 @@ namespace MyDashboard.WPF.Services.Alarm
 
         private List<AlarmRecord> FilterAlarms(List<AlarmRecord> alarms, string line, DateTime from, DateTime to, string search)
         {
-            return alarms.Where(alarm => 
-                (string.IsNullOrEmpty(line) || alarm.Line.Contains(line, StringComparison.OrdinalIgnoreCase)) &&
+            var filtered = alarms.Where(alarm => 
+                (string.IsNullOrEmpty(line) || line == "All" || alarm.Line.Contains(line, StringComparison.OrdinalIgnoreCase)) &&
                 alarm.DateTime >= from && 
                 alarm.DateTime <= to &&
                 (string.IsNullOrEmpty(search) || 
                  alarm.Message.Contains(search, StringComparison.OrdinalIgnoreCase))
             ).ToList();
+            
+            System.Diagnostics.Debug.WriteLine($"Filtered {filtered.Count} alarms from {alarms.Count} total");
+            return filtered;
         }
     }
 }
