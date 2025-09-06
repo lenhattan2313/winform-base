@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MyDashboard.WPF.Services;
 using MyDashboard.WPF.Services.Alarm;
 using MyDashboard.WPF.Services.Auth;
+using MyDashboard.WPF.Services.Report;
 
 namespace MyDashboard.WPF.Configuration
 {
@@ -42,12 +43,20 @@ namespace MyDashboard.WPF.Configuration
                             client.BaseAddress = new Uri(baseUrl);
                             client.Timeout = TimeSpan.FromSeconds(configuration.GetValue<int>("ApiSettings:Timeout", 30));
                         });
+
+                        services.AddHttpClient<IReportApiService, ReportApiService>(client =>
+                        {
+                            client.BaseAddress = new Uri(baseUrl);
+                            client.Timeout = TimeSpan.FromSeconds(configuration.GetValue<int>("ApiSettings:Timeout", 30));
+                        });
                     }
                 }
 
                 // Always register core services (they handle mock data internally when API is disabled)
                 services.AddScoped<AlarmService>();
                 services.AddScoped<AuthService>();
+                services.AddScoped<ReportService>();
+                services.AddScoped<IExcelExportService, ExcelExportService>();
                 services.AddSingleton<IAuthManager, AuthManager>();
 
                 return services.BuildServiceProvider();
