@@ -4,14 +4,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             MinWidth="800" MinHeight="600">
+             MinWidth="160" MinHeight="180">
     
     <Border Background="{StaticResource SurfaceBrush}" 
             BorderBrush="{StaticResource BorderBrush}" 
-            BorderThickness="2" 
-            CornerRadius="8" 
-            Padding="20" 
-            Margin="10">
+            BorderThickness="1" 
+            CornerRadius="4" 
+            Padding="8" 
+            Margin="3">
         
         <Grid>
             <Grid.RowDefinitions>
@@ -21,7 +21,7 @@
             </Grid.RowDefinitions>
             
             <!-- Row 1: System Runtime -->
-            <Grid Grid.Row="0" Margin="0,0,0,20">
+            <Grid Grid.Row="0" Margin="0,0,0,8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -30,26 +30,26 @@
                 </Grid.ColumnDefinitions>
                 
                 <StackPanel Grid.Column="0" HorizontalAlignment="Center">
-                    <TextBlock Text="Days" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
-                    <TextBox Text="2384" Width="80" Height="30" HorizontalAlignment="Center" 
+                    <TextBlock Text="Days" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,2"/>
+                    <TextBox Text="2384" Width="50" Height="24" FontSize="10" Padding="6,4" HorizontalAlignment="Center" 
                              TextAlignment="Center" IsReadOnly="True" Background="White"/>
                 </StackPanel>
                 
                 <StackPanel Grid.Column="1" HorizontalAlignment="Center">
-                    <TextBlock Text="Hours" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
-                    <TextBox Text="0" Width="80" Height="30" HorizontalAlignment="Center" 
+                    <TextBlock Text="Hours" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,2"/>
+                    <TextBox Text="0" Width="50" Height="24" FontSize="10" Padding="6,4" HorizontalAlignment="Center" 
                              TextAlignment="Center" IsReadOnly="True" Background="White"/>
                 </StackPanel>
                 
                 <StackPanel Grid.Column="2" HorizontalAlignment="Center">
-                    <TextBlock Text="Minutes" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
-                    <TextBox Text="3" Width="80" Height="30" HorizontalAlignment="Center" 
+                    <TextBlock Text="Minutes" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,2"/>
+                    <TextBox Text="3" Width="50" Height="24" FontSize="10" Padding="6,4" HorizontalAlignment="Center" 
                              TextAlignment="Center" IsReadOnly="True" Background="White"/>
                 </StackPanel>
                 
                 <StackPanel Grid.Column="3" HorizontalAlignment="Center">
-                    <TextBlock Text="Seconds" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
-                    <TextBox Text="24" Width="80" Height="30" HorizontalAlignment="Center" 
+                    <TextBlock Text="Seconds" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,2"/>
+                    <TextBox Text="24" Width="50" Height="24" FontSize="10" Padding="6,4" HorizontalAlignment="Center" 
                              TextAlignment="Center" IsReadOnly="True" Background="White"/>
                 </StackPanel>
             </Grid>
@@ -63,109 +63,109 @@
                 </Grid.ColumnDefinitions>
                 
                 <!-- Column 1: Data Fields -->
-                <StackPanel Grid.Column="0" Margin="0,0,20,0">
-                    <StackPanel Margin="0,0,0,15">
-                        <TextBlock Text="PreSet Bags" FontWeight="Bold" Margin="0,0,0,5"/>
-                        <TextBox Text="100" Height="30" IsReadOnly="True" Background="White"/>
+                <StackPanel Grid.Column="0" Margin="0,0,8,0">
+                    <StackPanel Margin="0,0,0,6">
+                        <TextBlock Text="PreSet Bags" FontWeight="Bold" Margin="0,0,0,2"/>
+                        <TextBox Text="100" Height="24" FontSize="10" Padding="6,4" Width="50" IsReadOnly="True" Background="White" HorizontalAlignment="Left"/>
                     </StackPanel>
                     
-                    <StackPanel Margin="0,0,0,15">
-                        <TextBlock Text="Weight each bag" FontWeight="Bold" Margin="0,0,0,5"/>
-                        <TextBox Text="1150.5" Height="30" IsReadOnly="True" Background="White"/>
+                    <StackPanel Margin="0,0,0,6">
+                        <TextBlock Text="Weight each bag" FontWeight="Bold" Margin="0,0,0,2"/>
+                        <TextBox Text="1150.5" Height="24" FontSize="10" Padding="6,4" Width="50" IsReadOnly="True" Background="White" HorizontalAlignment="Left"/>
                     </StackPanel>
                     
-                    <StackPanel Margin="0,0,0,15">
-                        <TextBlock Text="Last weight" FontWeight="Bold" Margin="0,0,0,5"/>
-                        <TextBox Text="1151" Height="30" IsReadOnly="True" Background="White"/>
+                    <StackPanel Margin="0,0,0,6">
+                        <TextBlock Text="Last weight" FontWeight="Bold" Margin="0,0,0,2"/>
+                        <TextBox Text="1151" Height="24" FontSize="10" Padding="6,4" Width="50" IsReadOnly="True" Background="White" HorizontalAlignment="Left"/>
                     </StackPanel>
                     
-                    <StackPanel Margin="0,0,0,15">
-                        <TextBlock Text="Total bags" FontWeight="Bold" Margin="0,0,0,5"/>
-                        <TextBox Text="5" Height="30" IsReadOnly="True" Background="White"/>
+                    <StackPanel Margin="0,0,0,6">
+                        <TextBlock Text="Total bags" FontWeight="Bold" Margin="0,0,0,2"/>
+                        <TextBox Text="5" Height="24" FontSize="10" Padding="6,4" Width="50" IsReadOnly="True" Background="White" HorizontalAlignment="Left"/>
                     </StackPanel>
                     
-                    <StackPanel Margin="0,0,0,15">
-                        <TextBlock Text="Total weight" FontWeight="Bold" Margin="0,0,0,5"/>
-                        <TextBox Text="5,753" Height="30" IsReadOnly="True" Background="White"/>
+                    <StackPanel Margin="0,0,0,6">
+                        <TextBlock Text="Total weight" FontWeight="Bold" Margin="0,0,0,2"/>
+                        <TextBox Text="5,753" Height="24" FontSize="10" Padding="6,4" Width="50" IsReadOnly="True" Background="White" HorizontalAlignment="Left"/>
                     </StackPanel>
                 </StackPanel>
                 
                 <!-- Column 2: Image -->
                 <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Image Source="pack://application:,,,/Assets/Images/UI/DB1.bmp" 
-                           Width="200" Height="200" 
+                           Width="160" Height="220" MinWidth="150" MinHeight="150"
                            Stretch="Uniform"/>
                 </Grid>
                 
                 <!-- Column 3: Status Indicators -->
-                <StackPanel Grid.Column="2" Margin="20,0,0,0">
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Center">
-                        <Ellipse Width="20" Height="20" Fill="Gray" Margin="0,0,10,0"/>
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" VerticalAlignment="Center">
+                        <Ellipse Width="16" Height="16" Fill="Gray" Margin="0,0,6,0"/>
                         <TextBlock Text="Auto/Manual" VerticalAlignment="Center"/>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Center">
-                        <Ellipse Width="20" Height="20" Fill="Gray" Margin="0,0,10,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" VerticalAlignment="Center">
+                        <Ellipse Width="16" Height="16" Fill="Gray" Margin="0,0,6,0"/>
                         <TextBlock Text="Feed" VerticalAlignment="Center"/>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Center">
-                        <Ellipse Width="20" Height="20" Fill="Gray" Margin="0,0,10,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" VerticalAlignment="Center">
+                        <Ellipse Width="16" Height="16" Fill="Gray" Margin="0,0,6,0"/>
                         <TextBlock Text="Discharge" VerticalAlignment="Center"/>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Center">
-                        <Ellipse Width="20" Height="20" Fill="Green" Margin="0,0,10,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" VerticalAlignment="Center">
+                        <Ellipse Width="16" Height="16" Fill="Green" Margin="0,0,6,0"/>
                         <TextBlock Text="Release bag" VerticalAlignment="Center"/>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Center">
-                        <Ellipse Width="20" Height="20" Fill="Red" Margin="0,0,10,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" VerticalAlignment="Center">
+                        <Ellipse Width="16" Height="16" Fill="Red" Margin="0,0,6,0"/>
                         <TextBlock Text="Pause state" VerticalAlignment="Center"/>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Center">
-                        <Ellipse Width="20" Height="20" Fill="Gray" Margin="0,0,10,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" VerticalAlignment="Center">
+                        <Ellipse Width="16" Height="16" Fill="Gray" Margin="0,0,6,0"/>
                         <TextBlock Text="Emergency" VerticalAlignment="Center"/>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Center">
-                        <Ellipse Width="20" Height="20" Fill="Gray" Margin="0,0,10,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" VerticalAlignment="Center">
+                        <Ellipse Width="16" Height="16" Fill="Gray" Margin="0,0,6,0"/>
                         <TextBlock Text="Tolerance" VerticalAlignment="Center"/>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Center">
-                        <Ellipse Width="20" Height="20" Fill="Gray" Margin="0,0,10,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" VerticalAlignment="Center">
+                        <Ellipse Width="16" Height="16" Fill="Gray" Margin="0,0,6,0"/>
                         <TextBlock Text="Complete" VerticalAlignment="Center"/>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Center">
-                        <Ellipse Width="20" Height="20" Fill="Gray" Margin="0,0,10,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" VerticalAlignment="Center">
+                        <Ellipse Width="16" Height="16" Fill="Gray" Margin="0,0,6,0"/>
                         <TextBlock Text="To preset bags" VerticalAlignment="Center"/>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Center">
-                        <Ellipse Width="20" Height="20" Fill="Gray" Margin="0,0,10,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" VerticalAlignment="Center">
+                        <Ellipse Width="16" Height="16" Fill="Gray" Margin="0,0,6,0"/>
                         <TextBlock Text="Data will over" VerticalAlignment="Center"/>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Center">
-                        <Ellipse Width="20" Height="20" Fill="Gray" Margin="0,0,10,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" VerticalAlignment="Center">
+                        <Ellipse Width="16" Height="16" Fill="Gray" Margin="0,0,6,0"/>
                         <TextBlock Text="Empty scale" VerticalAlignment="Center"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>
             
             <!-- Row 3: Barcode -->
-            <Grid Grid.Row="2" Margin="0,20,0,0">
+            <Grid Grid.Row="2" Margin="0,8,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 
                 <TextBlock Grid.Column="0" Text="Bar code:" FontWeight="Bold" 
-                           VerticalAlignment="Center" Margin="0,0,10,0"/>
-                <TextBox Grid.Column="1" Text="CB-603-CV120082511912" Height="30" 
+                           VerticalAlignment="Center" Margin="0,0,6,0"/>
+                <TextBox Grid.Column="1" Text="CB-603-CV120082511912" Height="24" FontSize="10" Padding="6,4" 
                          IsReadOnly="True" Background="White"/>
             </Grid>
         </Grid>

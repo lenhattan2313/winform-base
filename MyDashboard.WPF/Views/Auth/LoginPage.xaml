@@ -42,7 +42,7 @@
                       FontWeight="SemiBold" 
                       Foreground="{StaticResource TextBrush}" 
                       HorizontalAlignment="Center" 
-                      Margin="0,40,0,20"/>
+                      Margin="0,30,0,20"/>
 
             <!-- Username -->
             <TextBlock Text="Username" 
