@@ -56,7 +56,8 @@ namespace MyDashboard.WPF.Views.Main
                 Complete = RandomState(),
                 ToPresetBags = RandomState(),
                 DataWillOver = RandomState(),
-                EmptyScale = RandomState()
+                EmptyScale = RandomState(),
+                IsActive = _random.NextDouble() > 0.5 // Random true/false for demo
             };
 
             vm.TotalWeight = vm.TotalBags * vm.WeightEachBag;
@@ -94,6 +95,7 @@ namespace MyDashboard.WPF.Views.Main
             system.ToPresetBags = RandomState();
             system.DataWillOver = RandomState();
             system.EmptyScale = RandomState();
+            system.IsActive = _random.NextDouble() > 0.5; // Random true/false for demo
         }
 
         private IndicatorState RandomState()

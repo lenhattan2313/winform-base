@@ -59,4 +59,22 @@ namespace MyDashboard.WPF.Converters
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
             => throw new NotImplementedException();
     }
+
+    public class BooleanToFaceImageConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is bool isActive)
+            {
+                return isActive 
+                    ? "pack://application:,,,/Assets/Images/UI/FACE04.png"
+                    : "pack://application:,,,/Assets/Images/UI/FACE03.png";
+            }
+            
+            return "pack://application:,,,/Assets/Images/UI/FACE03.png";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+            => throw new NotImplementedException();
+    }
 }

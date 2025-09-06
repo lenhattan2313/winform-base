@@ -166,6 +166,13 @@ namespace MyDashboard.WPF.ViewModels
             set { _emptyScale = value; OnPropertyChanged(); }
         }
 
+        private bool _isActive;
+        public bool IsActive
+        {
+            get => _isActive;
+            set { _isActive = value; OnPropertyChanged(); }
+        }
+
         public double Progress
         {
             get

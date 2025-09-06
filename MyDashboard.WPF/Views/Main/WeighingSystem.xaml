@@ -11,6 +11,7 @@
         <conv:IndicatorStateToBrushConverter x:Key="StateToBrush"/>
         <conv:ProgressToStarConverter x:Key="ProgressToStar"/>
         <conv:InverseProgressToStarConverter x:Key="InverseProgressToStar"/>
+        <conv:BooleanToFaceImageConverter x:Key="BooleanToFaceImage"/>
     </UserControl.Resources>
 
     <Border Background="{StaticResource BackgroundGrayBrush}" 
@@ -139,6 +140,13 @@
                                  TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center"
                                  Margin="0,10,0,0" Padding="6,4" IsReadOnly="True"
                                  BorderBrush="Gray" BorderThickness="1" Background="Black" Foreground="Yellow" />
+                        
+                        <!-- Face Image at center between top and rectangle -->
+                        <Image Source="{Binding Data.IsActive, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource BooleanToFaceImage}}" 
+                               Width="30" Height="30"
+                               HorizontalAlignment="Center" VerticalAlignment="Top"
+                               Margin="0,44,2,0"
+                               Stretch="Uniform"/>
                         
                         <!-- Green Rectangle at center -->
                         <Rectangle Width="34" Height="12" Fill="{StaticResource PrimaryGreenBrush}" 
