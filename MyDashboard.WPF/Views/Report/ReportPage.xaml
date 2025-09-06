@@ -25,23 +25,44 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             
-            <ComboBox Grid.Column="0" Width="100" ItemsSource="{Binding Stations}" SelectedItem="{Binding SelectedStation}" Margin="5" Style="{StaticResource ModernComboBoxStyle}" ToolTip="Filter by Station"/>
-            <DatePicker Grid.Column="1" SelectedDate="{Binding EndTimeFilter}" Width="150" Margin="5" Style="{StaticResource ModernDatePickerStyle}" ToolTip="Filter by End Time Date"/>
-            <TextBox Grid.Column="2" Width="200" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Margin="5" Style="{StaticResource ModernTextBoxStyle}" ToolTip="Search in title, description, or report type"/>
-            <Button Grid.Column="3" Command="{Binding SearchCommand}" Width="100" Margin="5" Style="{StaticResource PrimaryButtonStyle}">
+            <!-- Station Filter with Label -->
+            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+                <TextBlock Text="Station:" FontWeight="SemiBold" Margin="0,0,0,2"/>
+                <ComboBox Width="100" ItemsSource="{Binding Stations}" SelectedItem="{Binding SelectedStation}" Style="{StaticResource ModernComboBoxStyle}" ToolTip="Filter by Station"/>
+            </StackPanel>
+            
+            <!-- Date Filter with Label -->
+            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5">
+                <TextBlock Text="From Date:" FontWeight="SemiBold" Margin="0,0,0,2"/>
+                <DatePicker SelectedDate="{Binding FromDateFilter}" Width="150" Style="{StaticResource ModernDatePickerStyle}" ToolTip="Filter from this date"/>
+            </StackPanel>
+            
+            <!-- To Date Filter with Label -->
+            <StackPanel Grid.Column="2" Orientation="Vertical" Margin="5">
+                <TextBlock Text="To Date:" FontWeight="SemiBold" Margin="0,0,0,2"/>
+                <DatePicker SelectedDate="{Binding ToDateFilter}" Width="150" Style="{StaticResource ModernDatePickerStyle}" ToolTip="Filter to this date"/>
+            </StackPanel>
+            
+            <!-- Search Button -->
+            <Button Grid.Column="3" Command="{Binding SearchCommand}" Width="100" Margin="5" VerticalAlignment="Bottom" Style="{StaticResource PrimaryButtonStyle}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Search"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Column="4" Command="{Binding ClearFiltersCommand}" Width="120" Margin="5" HorizontalAlignment="Left" Style="{StaticResource SecondaryButtonStyle}">
-                <TextBlock Text="Clear Filters"/>
-            </Button>
-            <Button Grid.Column="5" Command="{Binding ExportToExcelCommand}" Width="130" Margin="5" HorizontalAlignment="Left" Style="{StaticResource PrimaryButtonStyle}">
+            
+            <!-- Export Button -->
+            <Button Grid.Column="4" Command="{Binding ExportToExcelCommand}" Width="100" Margin="5" VerticalAlignment="Bottom" Style="{StaticResource PrimaryButtonStyle}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Export"/>
                 </StackPanel>
+            </Button>
+            
+            <!-- Clear Filters Button (moved to right) -->
+            <Button Grid.Column="6" Command="{Binding ClearFiltersCommand}" Width="120" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource SecondaryButtonStyle}">
+                <TextBlock Text="Clear Filters"/>
             </Button>
         </Grid>
 

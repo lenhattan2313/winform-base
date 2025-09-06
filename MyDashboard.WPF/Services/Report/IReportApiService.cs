@@ -8,6 +8,6 @@ namespace MyDashboard.WPF.Services.Report
 {
     public interface IReportApiService : IBaseApiService<ReportRecord>
     {
-        Task<List<ReportRecord>> GetReportsAsync(string search);
+        Task<List<ReportRecord>> GetReportsAsync(string station, DateTime fromDate, DateTime toDate, string search);
     }
 } 

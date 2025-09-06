@@ -28,11 +28,18 @@ namespace MyDashboard.WPF.ViewModels
             set { _selectedStation = value; OnPropertyChanged(nameof(SelectedStation)); }
         }
 
-        private DateTime? _endTimeFilter;
-        public DateTime? EndTimeFilter
+        private DateTime _fromDateFilter = DateTime.Today.AddDays(-7);
+        public DateTime FromDateFilter
         {
-            get => _endTimeFilter;
-            set { _endTimeFilter = value; OnPropertyChanged(nameof(EndTimeFilter)); }
+            get => _fromDateFilter;
+            set { _fromDateFilter = value; OnPropertyChanged(nameof(FromDateFilter)); }
+        }
+
+        private DateTime _toDateFilter = DateTime.Today;
+        public DateTime ToDateFilter
+        {
+            get => _toDateFilter;
+            set { _toDateFilter = value; OnPropertyChanged(nameof(ToDateFilter)); }
         }
 
         private string _searchText;
@@ -59,7 +66,7 @@ namespace MyDashboard.WPF.ViewModels
         private async void LoadReports()
         {
             Reports.Clear();
-            var data = await _reportService.GetReportsAsync(SelectedStation, EndTimeFilter, SearchText);
+            var data = await _reportService.GetReportsAsync(SelectedStation, FromDateFilter, ToDateFilter, SearchText);
             System.Diagnostics.Debug.WriteLine($"Loaded {data.Count} reports");
             foreach (var report in data)
                 Reports.Add(report);
@@ -69,7 +76,8 @@ namespace MyDashboard.WPF.ViewModels
         {
             SelectedStation = "All";
             SearchText = string.Empty;
-            EndTimeFilter = null;
+            FromDateFilter = DateTime.Today.AddDays(-7);
+            ToDateFilter = DateTime.Today;
             LoadReports();
         }
 

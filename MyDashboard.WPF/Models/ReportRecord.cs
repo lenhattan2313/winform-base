@@ -17,7 +17,7 @@ namespace MyDashboard.WPF.Models
         public int StartBags { get; set; }
         public int TotalBags { get; set; }
         public string SiloName { get; set; } = string.Empty;
-        public string EndTime { get; set; } = string.Empty;
+        public DateTime EndTime { get; set; }
         public string Shift { get; set; } = string.Empty;
         public int ScaleNo { get; set; }
         public string ScaleName { get; set; } = string.Empty;
@@ -40,9 +40,7 @@ namespace MyDashboard.WPF.Models
         { 
             get 
             {
-                if (DateTime.TryParse(EndTime, out DateTime result))
-                    return result;
-                return DateTime.Now;
+                return EndTime;
             }
         }
         

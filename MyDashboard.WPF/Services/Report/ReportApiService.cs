@@ -17,9 +17,9 @@ namespace MyDashboard.WPF.Services.Report
         {
         }
 
-        public async Task<List<ReportRecord>> GetReportsAsync(string search)
+        public async Task<List<ReportRecord>> GetReportsAsync(string station, DateTime fromDate, DateTime toDate, string search)
         {
-            return await GetDataAsync(null, DateTime.MinValue, DateTime.MaxValue, search);
+            return await GetDataAsync(station, fromDate, toDate, search);
         }
     }
 } 

@@ -23,20 +23,37 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             
-            <ComboBox Grid.Column="0" Width="100" ItemsSource="{Binding Lines}" SelectedItem="{Binding SelectedLine}" Margin="5" Style="{StaticResource ModernComboBoxStyle}"/>
-            <DatePicker Grid.Column="1" SelectedDate="{Binding FromDate}" Width="150" Margin="5" Style="{StaticResource ModernDatePickerStyle}"/>
-            <DatePicker Grid.Column="2" SelectedDate="{Binding ToDate}" Width="150" Margin="5" Style="{StaticResource ModernDatePickerStyle}"/>
-            <TextBox Grid.Column="3" Width="200" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Margin="5" Style="{StaticResource ModernTextBoxStyle}"/>
-            <Button Grid.Column="4" Command="{Binding SearchCommand}" Width="100" Margin="5" Style="{StaticResource PrimaryButtonStyle}">
+            <!-- Line Filter with Label -->
+            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+                <TextBlock Text="Line:" FontWeight="SemiBold" Margin="0,0,0,2"/>
+                <ComboBox Width="100" ItemsSource="{Binding Lines}" SelectedItem="{Binding SelectedLine}" Style="{StaticResource ModernComboBoxStyle}" ToolTip="Filter by Line"/>
+            </StackPanel>
+            
+            <!-- From Date Filter with Label -->
+            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5">
+                <TextBlock Text="From Date:" FontWeight="SemiBold" Margin="0,0,0,2"/>
+                <DatePicker SelectedDate="{Binding FromDate}" Width="150" Style="{StaticResource ModernDatePickerStyle}" ToolTip="Filter from this date"/>
+            </StackPanel>
+            
+            <!-- To Date Filter with Label -->
+            <StackPanel Grid.Column="2" Orientation="Vertical" Margin="5">
+                <TextBlock Text="To Date:" FontWeight="SemiBold" Margin="0,0,0,2"/>
+                <DatePicker SelectedDate="{Binding ToDate}" Width="150" Style="{StaticResource ModernDatePickerStyle}" ToolTip="Filter to this date"/>
+            </StackPanel>
+            
+            <!-- Search Button -->
+            <Button Grid.Column="3" Command="{Binding SearchCommand}" Width="100" Margin="5" VerticalAlignment="Bottom" Style="{StaticResource PrimaryButtonStyle}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Search"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Column="5" Command="{Binding ClearFiltersCommand}" Width="120" Margin="5" Style="{StaticResource SecondaryButtonStyle}">
+            
+            <!-- Clear Filters Button (moved to right) -->
+            <Button Grid.Column="5" Command="{Binding ClearFiltersCommand}" Width="120" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource SecondaryButtonStyle}">
                 <TextBlock Text="Clear Filters"/>
             </Button>
         </Grid>
