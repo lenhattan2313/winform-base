@@ -25,8 +25,17 @@ namespace MyDashboard.WPF.Models
         public string ScaleType { get; set; } = string.Empty;
         public string Operator { get; set; } = string.Empty;
         public string Spare_Ch1 { get; set; } = string.Empty;
+        public int Station { get; set; } = 1;
 
         // Additional properties for backward compatibility and filtering
+        public string StationDisplay 
+        { 
+            get 
+            {
+                return $"Station {Station}";
+            }
+        }
+        
         public DateTime DateTime 
         { 
             get 

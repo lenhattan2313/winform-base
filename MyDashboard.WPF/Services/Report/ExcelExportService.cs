@@ -44,7 +44,7 @@ namespace MyDashboard.WPF.Services.Report
                     // Add headers
                     var headers = new[]
                     {
-                        "Tare", "Net", "PauseNet", "Gross", "Target", "RecheckedWT", "Remains",
+                        "Station", "Tare", "Net", "PauseNet", "Gross", "Target", "RecheckedWT", "Remains",
                         "StartWT", "TotalWT", "StartBags", "TotalBags", "SiloName", "EndTime",
                         "Shift", "ScaleNo", "ScaleName", "GroupName", "ScaleType", "Operator", "Spare_Ch1"
                     };
@@ -62,26 +62,27 @@ namespace MyDashboard.WPF.Services.Report
                     int row = 2;
                     foreach (var report in reportList)
                     {
-                        worksheet.Cells[row, 1].Value = report.Tare;
-                        worksheet.Cells[row, 2].Value = report.Net;
-                        worksheet.Cells[row, 3].Value = report.PauseNet;
-                        worksheet.Cells[row, 4].Value = report.Gross;
-                        worksheet.Cells[row, 5].Value = report.Target;
-                        worksheet.Cells[row, 6].Value = report.RecheckedWT;
-                        worksheet.Cells[row, 7].Value = report.Remains;
-                        worksheet.Cells[row, 8].Value = report.StartWT;
-                        worksheet.Cells[row, 9].Value = report.TotalWT;
-                        worksheet.Cells[row, 10].Value = report.StartBags;
-                        worksheet.Cells[row, 11].Value = report.TotalBags;
-                        worksheet.Cells[row, 12].Value = report.SiloName;
-                        worksheet.Cells[row, 13].Value = report.EndTime;
-                        worksheet.Cells[row, 14].Value = report.Shift;
-                        worksheet.Cells[row, 15].Value = report.ScaleNo;
-                        worksheet.Cells[row, 16].Value = report.ScaleName;
-                        worksheet.Cells[row, 17].Value = report.GroupName;
-                        worksheet.Cells[row, 18].Value = report.ScaleType;
-                        worksheet.Cells[row, 19].Value = report.Operator;
-                        worksheet.Cells[row, 20].Value = report.Spare_Ch1;
+                        worksheet.Cells[row, 1].Value = report.StationDisplay;
+                        worksheet.Cells[row, 2].Value = report.Tare;
+                        worksheet.Cells[row, 3].Value = report.Net;
+                        worksheet.Cells[row, 4].Value = report.PauseNet;
+                        worksheet.Cells[row, 5].Value = report.Gross;
+                        worksheet.Cells[row, 6].Value = report.Target;
+                        worksheet.Cells[row, 7].Value = report.RecheckedWT;
+                        worksheet.Cells[row, 8].Value = report.Remains;
+                        worksheet.Cells[row, 9].Value = report.StartWT;
+                        worksheet.Cells[row, 10].Value = report.TotalWT;
+                        worksheet.Cells[row, 11].Value = report.StartBags;
+                        worksheet.Cells[row, 12].Value = report.TotalBags;
+                        worksheet.Cells[row, 13].Value = report.SiloName;
+                        worksheet.Cells[row, 14].Value = report.EndTime;
+                        worksheet.Cells[row, 15].Value = report.Shift;
+                        worksheet.Cells[row, 16].Value = report.ScaleNo;
+                        worksheet.Cells[row, 17].Value = report.ScaleName;
+                        worksheet.Cells[row, 18].Value = report.GroupName;
+                        worksheet.Cells[row, 19].Value = report.ScaleType;
+                        worksheet.Cells[row, 20].Value = report.Operator;
+                        worksheet.Cells[row, 21].Value = report.Spare_Ch1;
                         row++;
                     }
 
